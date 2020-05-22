@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Front-end Technical Test
 
-## Available Scripts
+Goal : building a small application dashboard that clinic managers
+would use for 2 functionalities
 
-In the project directory, you can run:
+1. Schedule : display a calendar (non-interactive)
+2. Doctor : display the staff for to the fictional clinic
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Design :
+  - the app will have a small side-menu on the left displaying the 2
+  options
+  - the main view will take the rest of the space (no header or footer)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Technical details :
+  1. The app will be ideally developed in angular, but another
+  framework can be used instead (vue, react or backbone marionette)
 
-### `npm test`
+  2. You can use any front-end component library (bootstrap,
+  primeng...)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  3. When the app loads, the user has to arrive on the schedule view
+  (i.e. https://dashboard.com/#schedule)
 
-### `npm run build`
+  4. A routing system has to be used, so when switching from the
+  Schedule to the Staff view, the url will change from /#schedule to /#staff
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  5. The Schedule view won't be interactive. The goal here is simply to
+  include a 3rd party library and display a calendar in the view
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  6. The Staff view :
+  - the number of employees has to be visible in the side-menu next to the label (like a bootstrap badge)
+  - the list of employees will be taken from a json file
+  - the table needs to have 2 columns :
+  - firstName + lastName
+  - group
+  - when clicking on this tab, a http GET call will be mocked (i.e. https://chrono.com/api/doctors)
+  - a button on top of the list with the label *Create* will render a popup with a small containing  attributes
+    - firstName (input field taking a string)
+    - lastName (input field taking a string)
+    - group (dropdown with 3 choices)
+    - when confirming the creation of a new staff member, the
+    displayed list has to be updated live as well as the "badge" in the
+    side-menu will be (+1)
+  - a search bar that filters the list after each letter entered
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Staff json file :
+[
+  {
+    id: 10
+    firstName: "Alain"
+    lastName: "Chrono",
+    group: "doctor"
+  }, 
+  {
+    id: 20
+    firstName: "Karen"
+    lastName: "Chrono",
+    group: "admin"
+  }, 
+  {
+    id: 30
+    firstName: "Leon"
+    lastName: "Chrono",
+    group: "doctor"
+  }, 
+  {
+    id: 40
+    firstName: "Monique"
+    lastName: "Chrono",
+    group: "nurse"
+  }
+]
