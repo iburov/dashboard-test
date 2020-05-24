@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~angular-calendar/css/angular-calendar";
+
 $primary: rgb(52, 119, 196);
 $secondary: rgb(37, 86, 141);
 $gray: rgb(99, 99, 99);
@@ -8,7 +9,30 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  &,
+  &::before,
+  &::after {
+    background-repeat: no-repeat !important;
+  }
+
+  &,
+  &:focus,
+  &:active,
+  button,
+  button:focus,
+  button:active {
+    outline: none !important;
+  }
 }
