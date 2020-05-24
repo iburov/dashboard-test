@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+$primary: rgb(52, 119, 196);
+$secondary: rgb(37, 86, 141);
+$gray: rgb(99, 99, 99);
+$gray-hover: rgb(131, 131, 131);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
