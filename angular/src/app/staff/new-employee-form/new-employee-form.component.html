@@ -1,1 +1,15 @@
-<p>new-employee-form works!</p>
+<div class="app-new-employee-form">
+  <label>First Name</label>
+  <input type="text" [(ngModel)]="firstName" />
+  <label>Last Name</label>
+  <input type="text" [(ngModel)]="lastName" />
+  <label>Group</label>
+  <select [(ngModel)]="group">
+    <option value="admin">Admin</option>
+    <option value="doctor">Doctor</option>
+    <option value="nurse">Nurse</option>
+  </select>
+
+  <button (click)="create()">Create</button>
+  <button (click)="cancel()">Cancel</button>
+</div>
