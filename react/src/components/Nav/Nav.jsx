@@ -9,16 +9,16 @@ function Nav() {
   ];
 
   let navButtonElements = navData.map((navButton, i) => (
-    <NavLink to={navButton.link} className="nav-link">
+    <NavLink
+      to={navButton.link}
+      className="nav-link"
+      activeClassName="--is-active"
+    >
       {navButton.value}
     </NavLink>
   ));
 
-  return (
-    <div className="dashboard-nav flex-column col-2 bg-secondary">
-      {navButtonElements}
-    </div>
-  );
+  return <div className="app-nav">{navButtonElements}</div>;
 }
 
 export default Nav;

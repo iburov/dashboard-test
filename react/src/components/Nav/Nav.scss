@@ -1,0 +1,16 @@
+.app-nav {
+  width: 180px;
+  padding-top: 2rem;
+  min-height: 100%;
+  background-color: #f0f0f0;
+}
+
+.nav-link {
+  display: block;
+  text-align: left;
+
+  &.--is-active {
+    color: red;
+    font-weight: 500;
+  }
+}

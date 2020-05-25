@@ -9,9 +9,9 @@ import PageNotFound from "./../PageNotFound/PageNotFound.jsx";
 function App() {
   return (
     <BrowserRouter>
-      <div className="dashboard-app row">
+      <div className="app">
         <Nav />
-        <div className="dashboard-app__wrapper col-10">
+        <div className="app__wrapper">
           <Switch>
             <Redirect exact from="/" to="/schedule" />
             <Route path="/schedule" render={() => <Schedule />} />
