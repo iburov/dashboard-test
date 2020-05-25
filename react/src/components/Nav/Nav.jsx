@@ -10,6 +10,7 @@ function Nav() {
 
   let navButtonElements = navData.map((navButton, i) => (
     <NavLink
+      key={i}
       to={navButton.link}
       className="nav-link"
       activeClassName="--is-active"
