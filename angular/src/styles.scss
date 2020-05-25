@@ -1,15 +1,9 @@
 @import "~angular-calendar/css/angular-calendar";
 
-$primary: rgb(52, 119, 196);
-$secondary: rgb(37, 86, 141);
-$gray: rgb(99, 99, 99);
-$gray-hover: rgb(131, 131, 131);
-
 html,
 body {
   height: 100%;
 }
-
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
