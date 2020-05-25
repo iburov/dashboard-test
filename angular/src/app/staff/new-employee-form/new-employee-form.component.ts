@@ -11,6 +11,11 @@ export class NewEmployeeFormComponent implements OnInit {
   firstName: string;
   lastName: string;
   group: EmployeeGroup;
+  groupOptions = [
+    { label: 'Admin', value: 'admin' },
+    { label: 'Doctor', value: 'doctor' },
+    { label: 'Nurse', value: 'nurse' },
+  ];
 
   constructor(
     private staffService: StaffService,
