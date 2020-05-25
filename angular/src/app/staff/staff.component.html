@@ -1,1 +1,34 @@
-<p>staff works!</p>
+<div class="dashboard-staff">
+  <ng-container *ngIf="staff$ | async as staff; else spinner">
+    <div class="dashboard-staff-header">
+      <mat-form-field class="example-form-field">
+        <mat-label>Filter staff</mat-label>
+
+        <input matInput type="text" (input)="filter($event, staff)" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="openDialog()">
+        Add Employee
+      </button>
+    </div>
+
+    <table mat-table [dataSource]="filteredStaff || staff">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="group">
+        <th mat-header-cell *matHeaderCellDef>Group</th>
+        <td mat-cell *matCellDef="let element">{{ element.group }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </ng-container>
+
+  <ng-template #spinner>
+    <mat-spinner color="accent" diameter="70"></mat-spinner>
+  </ng-template>
+</div>
