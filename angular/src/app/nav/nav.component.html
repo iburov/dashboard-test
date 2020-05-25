@@ -1,7 +1,20 @@
 <nav>
-  <a mat-button routerLink="schedule" routerLinkActive="--is-active"
-    >Schedule</a
-  >
+  <ul>
+    <li>
+      <a mat-button routerLink="schedule" routerLinkActive="--is-active"
+        >Schedule</a
+      >
+    </li>
 
-  <a mat-button routerLink="staff" routerLinkActive="--is-active">Staff </a>
+    <li>
+      <a mat-button routerLink="staff" routerLinkActive="--is-active"
+        >Staff
+        <span
+          *ngIf="counter$ | async as counter"
+          [matBadge]="counter"
+          matBadgeColor="accent"
+        ></span>
+      </a>
+    </li>
+  </ul>
 </nav>

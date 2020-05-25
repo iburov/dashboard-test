@@ -17,7 +17,7 @@ export class StaffComponent implements OnInit {
   filteredStaff: EmployeeListItem[];
   displayedColumns: string[] = ['name', 'group'];
 
-  constructor(private staffService: StaffService, public dialog: MatDialog) {}
+  constructor(private staffService: StaffService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.staff$ = this.staffService.data$.pipe(map(this.mapData));
