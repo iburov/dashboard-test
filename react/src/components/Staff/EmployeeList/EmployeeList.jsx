@@ -2,7 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./EmployeeList.scss";
 
-const EmployeeList = ({ staff }) => {
+const EmployeeList = ({ staff, keyword }) => {
+  let filteredStaff = keyword
+    ? staff.filter((el) => {
+        return (
+          el.firstName.toLowerCase().indexOf(keyword) >= 0 ||
+          el.lastName.toLowerCase().indexOf(keyword) >= 0 ||
+          el.group.toLowerCase().indexOf(keyword) >= 0
+        );
+      })
+    : staff;
+
   return (
     <div className="app-employee-list">
       <table className="table" id="staffTable">
@@ -14,7 +24,7 @@ const EmployeeList = ({ staff }) => {
         </thead>
 
         <tbody>
-          {staff.map((employee) => {
+          {filteredStaff.map((employee) => {
             return (
               <tr key={employee.id}>
                 <td>
@@ -32,6 +42,7 @@ const EmployeeList = ({ staff }) => {
 
 EmployeeList.propTypes = {
   staff: PropTypes.array.isRequired,
+  keyword: PropTypes.string.isRequired,
 };
 
 export default EmployeeList;

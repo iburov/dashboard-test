@@ -8,35 +8,19 @@ import Spinner from "../common/Spinner.jsx";
 import EmployeeList from "./EmployeeList/EmployeeList.jsx";
 
 class StaffPage extends React.Component {
-  filteredStaff = [];
+  constructor(props) {
+    super(props);
+    this.state = { keyword: "" };
+  }
 
   componentDidMount() {
     const { actions, staff } = this.props;
-    this.filteredStaff = this.props.staff;
 
     if (!staff.length) {
       actions.loadStaff().catch((error) => {
         alert("Loading staff failed: " + error);
       });
     }
-  }
-
-  filter(event) {
-    const keyword = (event.target.value || "").toLowerCase();
-
-    if (keyword) {
-      this.filteredStaff = this.props.staff.filter((el) => {
-        return (
-          el.firstName.toLowerCase().indexOf(keyword) >= 0 ||
-          el.lastName.toLowerCase().indexOf(keyword) >= 0 ||
-          el.group.toLowerCase().indexOf(keyword) >= 0
-        );
-      });
-    } else {
-      this.filteredStaff = this.props.staff;
-    }
-    console.log(keyword);
-    console.log(this.filteredStaff);
   }
 
   render() {
@@ -49,10 +33,16 @@ class StaffPage extends React.Component {
             <input
               type="text"
               placeholder="Filter..."
-              onChange={this.filter.bind(this)}
+              onChange={(event) => {
+                // this.keyword = event.target.value.toLowerCase();
+                this.setState({ keyword: event.target.value.toLowerCase() });
+              }}
             />
             <button className="btn btn-primary">Add Employee</button>
-            <EmployeeList staff={this.filteredStaff}></EmployeeList>
+            <EmployeeList
+              staff={this.props.staff}
+              keyword={this.state.keyword}
+            ></EmployeeList>
           </>
         )}
       </div>
