@@ -1,2 +1,11 @@
 .app-staff {
+  min-width: auto;
+
+  &__header {
+    padding-bottom: 3em;
+
+    input {
+      margin-right: 5em;
+    }
+  }
 }
