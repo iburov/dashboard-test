@@ -1,6 +1,6 @@
-import { ACTION_TYPE } from './actionTypes';
-import * as staffApi from '../../api/staff';
-import { beginApiCall, apiCallError } from './apiStatusActions';
+import { ACTION_TYPE } from "./actionTypes";
+import * as staffApi from "../../api/staff";
+import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 export function loadStaffSuccess(staff) {
   return { type: ACTION_TYPE.loadStaffSuccess, staff };
@@ -12,12 +12,16 @@ export function loadStaff() {
 
     return staffApi
       .getStaff()
-      .then(staff => {
+      .then((staff) => {
         dispatch(loadStaffSuccess(staff));
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch(apiCallError(error));
         throw error;
       });
   };
+}
+
+export function addEmployee(employee) {
+  return { type: ACTION_TYPE.addEmployee, employee };
 }

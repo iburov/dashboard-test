@@ -4,8 +4,9 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import "./Staff.scss";
 import * as staffActions from "../../redux/actions/staffActions";
-import Spinner from "../common/Spinner.jsx";
-import EmployeeList from "./EmployeeList/EmployeeList.jsx";
+import Spinner from "../common/Spinner";
+import EmployeeList from "./EmployeeList/EmployeeList";
+import AddEmployeeButton from "./AddEmployeeButton";
 
 class StaffPage extends React.Component {
   constructor(props) {
@@ -25,20 +26,23 @@ class StaffPage extends React.Component {
 
   render() {
     return (
-      <div className="dashboard-staff">
+      <div className="app-staff">
         {this.props.loading ? (
           <Spinner />
         ) : (
           <>
-            <input
-              type="text"
-              placeholder="Filter..."
-              onChange={(event) => {
-                // this.keyword = event.target.value.toLowerCase();
-                this.setState({ keyword: event.target.value.toLowerCase() });
-              }}
-            />
-            <button className="btn btn-primary">Add Employee</button>
+            <div className="app-staff__header form-inline">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Filter..."
+                onChange={(event) => {
+                  this.setState({ keyword: event.target.value.toLowerCase() });
+                }}
+              />
+              <AddEmployeeButton />
+            </div>
+
             <EmployeeList
               staff={this.props.staff}
               keyword={this.state.keyword}
